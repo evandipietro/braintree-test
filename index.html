@@ -1,18 +1,6 @@
 <html>
 <head>
 <style type="text/css">
-  /*--------------------
-SHARED VARIABLES
---------------------*/
-$red: #E91E63;
-$blue: #3F51B5;
-$grey: #EAE8E9;
-$grey2: #f3f3f3;
-$white: #FFF;
-
-/*--------------------
-GENERAL
---------------------*/
 
 *,
 *:before,
@@ -50,14 +38,14 @@ PANEL FORM
 --------------------*/
 
 .panel {
-  background: $white;
+  background-color: white;
   width: 80%;
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .16), 0 0 2px 0 rgba(0, 0, 0, .12);
 }
 
 .panel__header {
-  background: $blue;
-  color: $white;
+  background-color: blue;
+  color: white;
 }
 
 .panel__header,
@@ -66,7 +54,7 @@ PANEL FORM
 }
 
 .panel__footer {
-  background: $grey2;
+  background: grey;
 }
 
 .panel__content {
@@ -145,18 +133,19 @@ BT HOSTED FIELDS SPECIFIC
 --------------------*/
 
 .braintree-hosted-fields-focused {
-  border-bottom: 2px solid $blue;
+  border-bottom: 2px solid red;
   transition: all 200ms ease;
 }
 
 .braintree-hosted-fields-invalid {
-  border-bottom: 2px solid $red;
+  border-bottom: 2px solid red;
   transition: all 200ms ease;
 }
 
 </style>
 </head>
 <body>
+<div id="useragent"></div>
 <form id="cardForm">
   <div class="panel">
     <header class="panel__header">
@@ -202,6 +191,7 @@ BT HOSTED FIELDS SPECIFIC
 
 
 <script type='text/javascript'>
+$('#useragent').text(navigator.userAgent);
 braintree.client.create({
   authorization: 'sandbox_g42y39zw_348pk9cgf3bgyw2b'
 }, function(err, clientInstance) {
@@ -294,11 +284,12 @@ braintree.client.create({
       hostedFieldsInstance.tokenize(function (err, payload) {
         if (err) {
           console.error(err);
+          $('body').css('background-color', 'red');
           return;
         }
         // This is where you would submit payload.nonce to your server
         console.log('IT WORKED!!!');
-        $('body').style.backgroundColor = 'green';
+        $('body').css('background-color', 'green');
 
       });
     });
