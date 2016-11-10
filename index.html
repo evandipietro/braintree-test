@@ -79,24 +79,39 @@ PANEL FORM
   font-weight: 400;
   overflow: hidden;
   margin-bottom: 0.5em;
-  &.label-float {
-    height: 33px;
-    margin-bottom: -1px;
-    transform: translate(0, 0);
-    font-size: 12px;
-    line-height: 15px;
-    text-overflow: ellipsis;
-    color: #2196F3;
-    transition: all .15s ease-out
-  }
-  &.filled {
-    @extend .label-float;
-    color: rgba(0, 0, 0, .54);
-  }
-  &.invalid {
-    @extend .label-float;
-    color: #F44336;
-  }
+}
+
+.hosted-field--label.label-float {
+  height: 33px;
+  margin-bottom: -1px;
+  transform: translate(0, 0);
+  font-size: 12px;
+  line-height: 15px;
+  text-overflow: ellipsis;
+  color: #2196F3;
+  transition: all .15s ease-out
+}
+.hosted-field--label.filled {
+  height: 33px;
+  margin-bottom: -1px;
+  transform: translate(0, 0);
+  font-size: 12px;
+  line-height: 15px;
+  text-overflow: ellipsis;
+  color: #2196F3;
+  transition: all .15s ease-out;
+  color: rgba(0, 0, 0, .54);
+}
+.hosted-field--label.invalid {
+  height: 33px;
+  margin-bottom: -1px;
+  transform: translate(0, 0);
+  font-size: 12px;
+  line-height: 15px;
+  text-overflow: ellipsis;
+  color: #2196F3;
+  transition: all .15s ease-out;
+  color: #F44336;
 }
 
 .hosted-field {
